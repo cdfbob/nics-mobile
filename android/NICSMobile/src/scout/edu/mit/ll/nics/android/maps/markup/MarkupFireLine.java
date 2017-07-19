@@ -36,6 +36,7 @@ import java.util.List;
 import android.graphics.Bitmap;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -66,7 +67,15 @@ public class MarkupFireLine extends MarkupBaseShape {
 		setTitle(item.getLabelText());
 		setType(MarkupType.sketch);
 		setTime(item.getSeqTime());
-		setStrokeColor(strokeColor);
+		
+		if (item.getDashStyle().equals("fire-edge-line")) {
+			int[] redStrokeColor = new int[] {255, 255, 0, 0};
+			setStrokeColor(redStrokeColor);
+		} else {
+			Log.v("IMPORTANT", item.getDashStyle());
+			setStrokeColor(strokeColor);
+		}
+		
 		setCreator(item.getUsername());
 		setDraft(false);
 		setFeatureId(item.getFeatureId());
