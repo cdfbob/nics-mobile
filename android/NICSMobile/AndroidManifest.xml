@@ -33,8 +33,8 @@
 
 -->
 <manifest package="scout.edu.mit.ll.nics.android"
-    android:versionCode="1"
-    android:versionName="6.2" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:versionCode="2"
+    android:versionName="6.2.1.2" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
 

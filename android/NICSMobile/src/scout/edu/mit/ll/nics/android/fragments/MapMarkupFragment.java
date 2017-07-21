@@ -1570,23 +1570,23 @@ public class MapMarkupFragment extends Fragment implements OnMapClickListener, O
 
 							} else if (feature.getType().equals(MarkupType.marker.toString()) || feature.getType().equals("sketch") || feature.getType().equals("line")) {
 
-								if (feature.getDashStyle() == null || feature.getDashStyle().equals("solid") || feature.getDashStyle().equals("completedLine")) {
-									final MarkupSegment segment = new MarkupSegment(mDataManager, feature, serverColor);
-									mMarkupShapes.put(feature.getFeatureId(), segment);
-
-									mContext.runOnUiThread(new Runnable() {
-
-										@Override
-										public void run() {
-											segment.setPolyline(mMap.addPolyline(segment.getOptions()));
-											feature.setRendered(true);
-										}
-									});
-								} else {
-									final MarkupFireLine fireline = new MarkupFireLine(mDataManager, feature, serverColor, zoom);
-									mMarkupShapes.put(feature.getFeatureId(), fireline);
-									mFirelineFeatures.add(fireline);
-								}
+//								if (feature.getDashStyle() == null || feature.getDashStyle().equals("solid") || feature.getDashStyle().equals("completedLine")) {
+//									final MarkupSegment segment = new MarkupSegment(mDataManager, feature, serverColor);
+//									mMarkupShapes.put(feature.getFeatureId(), segment);
+//
+//									mContext.runOnUiThread(new Runnable() {
+//
+//										@Override
+//										public void run() {
+//											segment.setPolyline(mMap.addPolyline(segment.getOptions()));
+//											feature.setRendered(true);
+//										}
+//									});
+//								} else {
+////									final MarkupFireLine fireline = new MarkupFireLine(mDataManager, feature, serverColor, zoom);
+////									mMarkupShapes.put(feature.getFeatureId(), fireline);
+////									mFirelineFeatures.add(fireline);
+//								}
 							} else if (feature.getType().equals(MarkupType.square.toString())) {
 								final MarkupRectangle rectangle = new MarkupRectangle(mDataManager, feature, serverColor, lastFillColor);
 								mMarkupShapes.put(feature.getFeatureId(), rectangle);

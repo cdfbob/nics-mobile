@@ -71,7 +71,10 @@ public class MarkupFeatureTileProvider extends MarkupCanvasTileProvider {
 		for (MarkupFireLine feature : mFirelineFeatures) {
 			paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 			paint.setStyle(Style.STROKE);
-			paint.setColor(Color.BLACK);
+			int red = feature.getStrokeColor()[1];
+			int green = feature.getStrokeColor()[2];
+			int blue = feature.getStrokeColor()[3];
+			paint.setColor(Color.rgb(red, green, blue));
 			LatLngBounds bounds = projection.getTileBounds();
 
 			DoublePoint sw = new DoublePoint(0, 0);
@@ -111,7 +114,7 @@ public class MarkupFeatureTileProvider extends MarkupCanvasTileProvider {
 				paint.setPathEffect(new PathDashPathEffect(makeCross(2), 15, 0, PathDashPathEffect.Style.ROTATE));
 			} else if (dashStyle.equals("proposedDozer")) {
 				paint.setPathEffect(new PathDashPathEffect(makeCrossWithCircle(2), 30, 0, PathDashPathEffect.Style.ROTATE));
-			} else if (dashStyle.equals("fireEdge")) {
+			} else if (dashStyle.equals("fire-edge-line")) {
 				paint.setColor(Color.RED);
 				paint.setStrokeWidth(5);
 				canvas.drawPath(path, paint);

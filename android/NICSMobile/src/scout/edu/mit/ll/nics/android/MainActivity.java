@@ -810,6 +810,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.OnNavig
 
 		return super.onOptionsItemSelected(item);
 	}
+ 
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
